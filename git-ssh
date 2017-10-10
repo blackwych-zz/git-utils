@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -eu
+
+declare identity="$(git config --get gitssh.identity)"
+
+exec ssh ${identity:+-i "$identity"} "$@"
